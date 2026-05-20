@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dipc880g4mau2"]
+
+[ext_resource type="Texture2D" uid="uid://kcvgsya3e5w2" path="res://assets/gfx/blue_whale_menu.jpg" id="1_1bvp3"]
+[ext_resource type="Theme" uid="uid://8wcx84jaj02h" path="res://themes/panel_black.tres" id="2_0xm2m"]
+[ext_resource type="Theme" uid="uid://bwtn8rr6se0b7" path="res://themes/ui_titles.tres" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://demwi1wxga0ie" path="res://Scripts/change_scene.gd" id="4_1bvp3"]
+
+[node name="Control" type="Control" unique_id=1391150186]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bw_bg" type="TextureRect" parent="." unique_id=1202479957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1bvp3")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Panel_black" type="Panel" parent="." unique_id=588914569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_0xm2m")
+
+[node name="Title_bw" type="Label" parent="Panel_black" unique_id=1016793683]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.5
+offset_top = 55.0
+offset_right = 144.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme = ExtResource("3_h2yge")
+text = "Blue Whale"
+
+[node name="Boot_btn" type="Button" parent="Panel_black" unique_id=1889923719]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -335.5
+offset_top = -153.0
+offset_right = 335.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_h2yge")
+text = "Arrancar programa"
+script = ExtResource("4_1bvp3")
