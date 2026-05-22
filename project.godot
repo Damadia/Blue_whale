@@ -13,7 +13,6 @@ config_version=5
 config/name="Blue whale"
 run/main_scene="uid://dipc880g4mau2"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
 
 [dotnet]
 
