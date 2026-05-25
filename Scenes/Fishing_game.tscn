@@ -1,3 +1,255 @@
 [gd_scene format=3 uid="uid://dtqvqgmdl8g65"]
 
-[node name="Fishing" type="Node2D" unique_id=2050147074]
+[ext_resource type="Texture2D" uid="uid://buedsd32umyx4" path="res://assets/gfx/Parallax_Backgrounds_Dock/Dock/0.png" id="1_1a1fr"]
+[ext_resource type="Texture2D" uid="uid://dw1m38w4weo5x" path="res://assets/gfx/Parallax_Backgrounds_Dock/Dock/2.png" id="2_wwaqq"]
+[ext_resource type="Texture2D" uid="uid://bfs55f4jwjsdf" path="res://assets/gfx/Parallax_Backgrounds_Dock/Dock/3.png" id="3_30r2a"]
+[ext_resource type="Texture2D" uid="uid://dvec4571sypmd" path="res://assets/gfx/Parallax_Backgrounds_Dock/Dock/6.png" id="4_2wygr"]
+[ext_resource type="Texture2D" uid="uid://c11v6g6tgg821" path="res://assets/gfx/Parallax_Backgrounds_Dock/Dock/8.png" id="5_5sxk4"]
+[ext_resource type="Texture2D" uid="uid://bc8etdjsi8bs3" path="res://assets/gfx/Parallax_Backgrounds_Dock/Dock/7.png" id="6_5e6fq"]
+[ext_resource type="Script" uid="uid://xrffcj5cgh5p" path="res://Scripts/water_flow.gd" id="7_2wygr"]
+[ext_resource type="PackedScene" uid="uid://cqafdm1ykf8ml" path="res://Scenes/fisherman.tscn" id="8_5sxk4"]
+[ext_resource type="Script" uid="uid://8o46gg4ekrxq" path="res://Scripts/Classes/fish_tank.gd" id="9_n8pm4"]
+[ext_resource type="Script" uid="uid://bjmg0oidyowiw" path="res://Scripts/input_master.gd" id="12_sv7fw"]
+[ext_resource type="Theme" uid="uid://8wcx84jaj02h" path="res://themes/panel_black.tres" id="13_bpove"]
+[ext_resource type="Theme" uid="uid://cmiaccqsa6gae" path="res://themes/ui_text2.tres" id="13_epmj7"]
+[ext_resource type="Script" uid="uid://dcx2y23rbf1ws" path="res://Scripts/config_master.gd" id="14_aluof"]
+[ext_resource type="Theme" uid="uid://dbcalhtci82l6" path="res://themes/ui_text1.tres" id="14_ba2at"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aluof"]
+
+[node name="game_fish" type="Node2D" unique_id=2050147074]
+
+[node name="BG_parallax" type="CanvasLayer" parent="." unique_id=1241827406]
+follow_viewport_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="BG_parallax" unique_id=1527820959]
+texture_filter = 1
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(500, 0)
+repeat_times = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_parallax/Parallax2D" unique_id=1333567425]
+position = Vector2(987, 536)
+scale = Vector2(5.243056, 5.243056)
+texture = ExtResource("1_1a1fr")
+
+[node name="Parallax2D2" type="Parallax2D" parent="BG_parallax" unique_id=802853075]
+texture_filter = 1
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(-5, -116)
+repeat_size = Vector2(500, 0)
+repeat_times = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_parallax/Parallax2D2" unique_id=1303085336]
+position = Vector2(987, 536)
+scale = Vector2(5.243056, 5.243056)
+texture = ExtResource("2_wwaqq")
+
+[node name="Parallax2D3" type="Parallax2D" parent="BG_parallax" unique_id=613831820]
+texture_filter = 1
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, 24)
+repeat_size = Vector2(500, 0)
+repeat_times = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_parallax/Parallax2D3" unique_id=497431206]
+position = Vector2(984.00006, 611)
+scale = Vector2(5.243056, 5.243056)
+texture = ExtResource("3_30r2a")
+
+[node name="Parallax2D4" type="Parallax2D" parent="BG_parallax" unique_id=166199054]
+texture_filter = 1
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(500, 0)
+repeat_times = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_parallax/Parallax2D4" unique_id=226088740]
+position = Vector2(1107, 604)
+scale = Vector2(5.243056, 5.243056)
+texture = ExtResource("4_2wygr")
+
+[node name="Parallax2D5" type="Parallax2D" parent="BG_parallax" unique_id=435614211]
+texture_filter = 1
+scroll_scale = Vector2(0.35, 0.1)
+repeat_size = Vector2(500, 0)
+repeat_times = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_parallax/Parallax2D5" unique_id=515901642]
+position = Vector2(984.00006, 611)
+scale = Vector2(5.243056, 5.243056)
+texture = ExtResource("5_5sxk4")
+
+[node name="Parallax2D6" type="Parallax2D" parent="BG_parallax" unique_id=1821167750]
+texture_filter = 1
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(500, 0)
+repeat_times = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_parallax/Parallax2D6" unique_id=735765055]
+position = Vector2(986.00006, 550)
+scale = Vector2(5.243056, 5.243056)
+texture = ExtResource("6_5e6fq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=517336553]
+position = Vector2(-16, 566)
+script = ExtResource("7_2wygr")
+
+[node name="FirstPlane" type="CanvasLayer" parent="." unique_id=1943568418]
+
+[node name="TankFish" type="Node" parent="FirstPlane" unique_id=1801163124 node_paths=PackedStringArray("THF")]
+script = ExtResource("9_n8pm4")
+THF = NodePath("HideTimer")
+metadata/_custom_type_script = "uid://8o46gg4ekrxq"
+
+[node name="HideTimer" type="Timer" parent="FirstPlane/TankFish" unique_id=941653169]
+
+[node name="Fisherman" parent="FirstPlane" unique_id=1977547117 instance=ExtResource("8_5sxk4")]
+position = Vector2(792, 605)
+
+[node name="InputMaster" type="Node" parent="." unique_id=923250780 node_paths=PackedStringArray("MTW", "THF", "FT", "FM")]
+script = ExtResource("12_sv7fw")
+MTW = NodePath("MinTimeWait")
+THF = NodePath("")
+FT = NodePath("../FirstPlane/TankFish")
+FM = NodePath("../FirstPlane/Fisherman")
+
+[node name="MinTimeWait" type="Timer" parent="InputMaster" unique_id=753317526]
+
+[node name="UI_settings" type="CanvasLayer" parent="." unique_id=1732487801]
+process_mode = 2
+
+[node name="Panel2" type="Panel" parent="UI_settings" unique_id=1765459756]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aluof")
+
+[node name="escRestart" type="Label" parent="UI_settings/Panel2" unique_id=765743537]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 678.0
+offset_bottom = 64.0
+theme = ExtResource("13_epmj7")
+text = "Presiona ESC para reiniciar"
+
+[node name="createdBy" type="Label" parent="UI_settings/Panel2" unique_id=219943697]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -75.0
+offset_right = 979.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme = ExtResource("13_epmj7")
+text = "Elaborado por: Angel Svein Ortiz Méndez"
+
+[node name="howToPlay" type="Label" parent="UI_settings/Panel2" unique_id=62361867]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1089.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 75.0
+grow_horizontal = 0
+theme = ExtResource("13_epmj7")
+text = "Botón izq del ratón para enganchar.
+Botón der del ratón para pescar."
+
+[node name="Panel" type="Panel" parent="UI_settings" unique_id=217551712]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_bpove")
+
+[node name="Config_master" type="Node" parent="UI_settings/Panel" unique_id=1794011041 node_paths=PackedStringArray("AW", "PW", "NPW", "StartButton", "FT")]
+process_mode = 2
+script = ExtResource("14_aluof")
+AW = NodePath("../VBoxContainer/HBoxContainer/AmountWhales")
+PW = NodePath("../VBoxContainer/HBoxContainer2/ProbWhales")
+NPW = NodePath("../VBoxContainer/HBoxContainer3/ProbNotWhale")
+StartButton = NodePath("../VBoxContainer/Start")
+FT = NodePath("../../../FirstPlane/TankFish")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_settings/Panel" unique_id=1318866238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("14_ba2at")
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="UI_settings/Panel/VBoxContainer" unique_id=1570416024]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("14_ba2at")
+text = "Configuraciones de la simulación"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI_settings/Panel/VBoxContainer" unique_id=1944994371]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="UI_settings/Panel/VBoxContainer/HBoxContainer" unique_id=1503663693]
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+theme_override_font_sizes/font_size = 48
+text = "Cantidad \"r\" de ballenas"
+
+[node name="AmountWhales" type="LineEdit" parent="UI_settings/Panel/VBoxContainer/HBoxContainer" unique_id=1069351211]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+placeholder_text = "número entero > 0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI_settings/Panel/VBoxContainer" unique_id=1302245377]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="UI_settings/Panel/VBoxContainer/HBoxContainer2" unique_id=306606684]
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+theme_override_font_sizes/font_size = 48
+text = "Probabilidad pescar ballena (p)"
+
+[node name="ProbWhales" type="LineEdit" parent="UI_settings/Panel/VBoxContainer/HBoxContainer2" unique_id=18172673]
+custom_minimum_size = Vector2(890, 0)
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+placeholder_text = "0.0 > número > 1.0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI_settings/Panel/VBoxContainer" unique_id=959974845]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="UI_settings/Panel/VBoxContainer/HBoxContainer3" unique_id=1626558570]
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+theme_override_font_sizes/font_size = 46
+text = "Probabilidad NO pescar ballena (q)"
+
+[node name="ProbNotWhale" type="LineEdit" parent="UI_settings/Panel/VBoxContainer/HBoxContainer3" unique_id=78000105]
+custom_minimum_size = Vector2(920.03, 0)
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+placeholder_text = "1 - p"
+editable = false
+
+[node name="Start" type="Button" parent="UI_settings/Panel/VBoxContainer" unique_id=962834317]
+layout_mode = 2
+theme = ExtResource("14_ba2at")
+disabled = true
+text = "Ejecutar simulación"

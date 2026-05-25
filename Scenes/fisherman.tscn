@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://cqafdm1ykf8ml"]
+
+[ext_resource type="Texture2D" uid="uid://cguwyhl4tq4j7" path="res://assets/gfx/free-fishing-game-assets-pixel-art-pack/2 Character animation/GraveRobber_fish.png" id="1_v4mpn"]
+[ext_resource type="Texture2D" uid="uid://b22uujolmkfem" path="res://assets/gfx/free-fishing-game-assets-pixel-art-pack/2 Character animation/GraveRobber_hook.png" id="2_2ejj0"]
+[ext_resource type="Texture2D" uid="uid://d13w5gswdub54" path="res://assets/gfx/free-fishing-game-assets-pixel-art-pack/3 Objects/Boat.png" id="3_ewfrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ytos"]
+size = Vector2(45, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tow3"]
+atlas = ExtResource("1_v4mpn")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgdsj"]
+atlas = ExtResource("1_v4mpn")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kenfp"]
+atlas = ExtResource("1_v4mpn")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5rko"]
+atlas = ExtResource("1_v4mpn")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ga8b"]
+atlas = ExtResource("2_2ejj0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6idk"]
+atlas = ExtResource("2_2ejj0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwc4g"]
+atlas = ExtResource("2_2ejj0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmcty"]
+atlas = ExtResource("2_2ejj0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sepy6"]
+atlas = ExtResource("2_2ejj0")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecnyx"]
+atlas = ExtResource("2_2ejj0")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlfip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tow3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgdsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kenfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5rko")
+}],
+"loop": true,
+"name": &"Fishing",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ga8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6idk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwc4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmcty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sepy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecnyx")
+}],
+"loop": false,
+"name": &"Hook",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_2ejj0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 52)]
+}
+
+[sub_resource type="Animation" id="Animation_ewfrj"]
+resource_name = "up_down"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06676667, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(23, 52), Vector2(23, 47), Vector2(23, 52), Vector2(23, 57), Vector2(23, 52)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ytos"]
+_data = {
+&"RESET": SubResource("Animation_2ejj0"),
+&"up_down": SubResource("Animation_ewfrj")
+}
+
+[node name="Fisherman" type="StaticBody2D" unique_id=1977547117]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=760730918]
+position = Vector2(22, 31)
+shape = SubResource("RectangleShape2D_1ytos")
+
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=996052333]
+texture_filter = 1
+position = Vector2(-154, -93)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_jlfip")
+animation = &"Hook"
+autoplay = "Fishing"
+flip_h = true
+
+[node name="Boat" type="Sprite2D" parent="." unique_id=1452474170]
+texture_filter = 1
+position = Vector2(23, 52)
+scale = Vector2(6, 6)
+texture = ExtResource("3_ewfrj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boat" unique_id=319288512]
+libraries/ = SubResource("AnimationLibrary_1ytos")
+autoplay = &"up_down"
+movie_quit_on_finish = true

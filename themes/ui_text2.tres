@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://cmiaccqsa6gae"]
+
+[ext_resource type="FontFile" uid="uid://7j84l7ewtcb0" path="res://assets/fonts/' Mono Regular.ttf" id="1_mg7fn"]
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 0)
+Label/colors/font_outline_color = Color(0.1428257, 0.1428257, 0.1428257, 0)
+Label/constants/outline_size = 3
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("1_mg7fn")
