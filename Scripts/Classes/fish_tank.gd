@@ -6,7 +6,7 @@ var config : ConfigProb:
 		config = Prob
 		for i in Prob.WhalesA:
 			Whales.append(false)
-		progress.text += "Ballenas pescadas: 0" + "/" + str(Prob.WhalesA)
+		progress.text += "Ballenas pescadas111: 0" + "/" + str(Prob.WhalesA)
 		
 var Whales : Array[bool]
 
