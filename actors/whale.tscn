@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://byg5myirf5rlx"]
 
 [ext_resource type="PackedScene" uid="uid://dgip6u8mf2dhu" path="res://Fish Pack Animated by Quaternius/FBX/Whale.fbx" id="1_h7nh4"]
+[ext_resource type="Script" uid="uid://xrffcj5cgh5p" path="res://Scripts/water_flow.gd" id="1_joqrh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyegr"]
 bg_color = Color(0.7165026, 0.087203465, 0.2527732, 1)
@@ -19,6 +20,10 @@ offset_right = 74.00001
 offset_bottom = 154.0
 scale = Vector2(8.116729, 1.0343484)
 theme = SubResource("Theme_joqrh")
+
+[node name="Camera2D" type="Camera2D" parent="Check" unique_id=1349340562]
+position = Vector2(-16, 566)
+script = ExtResource("1_joqrh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=709264569]
 shape = SubResource("RectangleShape2D_2r572")

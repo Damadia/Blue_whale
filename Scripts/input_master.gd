@@ -17,7 +17,6 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if currentState == States.fishing:
 		if event.is_action_pressed("Rod"):
-			print("AHHHHHHHHHHHHHHHH")
 			FT.spawn_fishes()
 			change_state(States.hook)
 	
@@ -30,8 +29,9 @@ func _input(event: InputEvent) -> void:
 		get_tree().reload_current_scene()
 
 func change_state(newState : States) -> void:
-	exit_state(currentState)
+	var oldState = currentState
 	currentState = newState
+	exit_state(oldState)
 func exit_state(state: States) -> void:
 	if state == States.fishing:
 		var anims : AnimatedSprite2D = FM.get_node("Animations")

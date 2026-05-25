@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://xrffcj5cgh5p" path="res://Scripts/water_flow.gd" id="7_2wygr"]
 [ext_resource type="PackedScene" uid="uid://cqafdm1ykf8ml" path="res://Scenes/fisherman.tscn" id="8_5sxk4"]
 [ext_resource type="Script" uid="uid://8o46gg4ekrxq" path="res://Scripts/Classes/fish_tank.gd" id="9_n8pm4"]
+[ext_resource type="FontFile" uid="uid://q0nk6t54uolb" path="res://assets/fonts/' Mono Bold.ttf" id="12_aluof"]
 [ext_resource type="Script" uid="uid://bjmg0oidyowiw" path="res://Scripts/input_master.gd" id="12_sv7fw"]
 [ext_resource type="Theme" uid="uid://8wcx84jaj02h" path="res://themes/panel_black.tres" id="13_bpove"]
 [ext_resource type="Theme" uid="uid://cmiaccqsa6gae" path="res://themes/ui_text2.tres" id="13_epmj7"]
@@ -106,10 +107,9 @@ metadata/_custom_type_script = "uid://8o46gg4ekrxq"
 [node name="Fisherman" parent="FirstPlane" unique_id=1977547117 instance=ExtResource("8_5sxk4")]
 position = Vector2(792, 605)
 
-[node name="InputMaster" type="Node" parent="." unique_id=923250780 node_paths=PackedStringArray("MTW", "THF", "FT", "FM")]
+[node name="InputMaster" type="Node" parent="." unique_id=923250780 node_paths=PackedStringArray("MTW", "FT", "FM")]
 script = ExtResource("12_sv7fw")
 MTW = NodePath("MinTimeWait")
-THF = NodePath("")
 FT = NodePath("../FirstPlane/TankFish")
 FM = NodePath("../FirstPlane/Fisherman")
 
@@ -161,6 +161,38 @@ grow_horizontal = 0
 theme = ExtResource("13_epmj7")
 text = "Botón izq del ratón para enganchar.
 Botón der del ratón para pescar."
+
+[node name="progress" type="Label" parent="UI_settings/Panel2" unique_id=1073166963]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("13_epmj7")
+text = "Ballenas pescadas: "
+
+[node name="endScreen" type="Label" parent="UI_settings/Panel2" unique_id=1874126387]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_aluof")
+theme_override_font_sizes/font_size = 64
+text = "Termino, pulsa esc para reiniciar el programa"
 
 [node name="Panel" type="Panel" parent="UI_settings" unique_id=217551712]
 anchors_preset = 15
